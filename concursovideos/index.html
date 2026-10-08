@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ConcursoVideos</title>
+  <meta name="description" content="ConcursoVideos: aplicativo de uso pessoal que lê vídeos do Google Drive do próprio desenvolvedor para reprodução em um servidor de mídia local.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F6F8FB; --grid: rgba(35, 70, 184, 0.07);
+      --ink: #17202C; --muted: #566273; --accent: #2346B8; --rule: #D9DFE8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111925; --grid: rgba(143, 176, 255, 0.06);
+        --ink: #E5EAF1; --muted: #9BA7B6; --accent: #8FB0FF; --rule: #263243;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background-color: var(--paper);
+      background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 24px 24px;
+      color: var(--ink);
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    main { max-width: 680px; margin: 0 auto; padding: 64px 20px; }
+    h1, h2 { font-family: "STIX Two Text", Georgia, serif; font-weight: 600; line-height: 1.15; }
+    h1 { font-size: clamp(2.2rem, 6vw, 3rem); margin: 0 0 16px; }
+    h2 { font-size: 1.4rem; margin: 36px 0 10px; }
+    p { margin: 0 0 14px; }
+    .lead { font-size: 1.12rem; color: var(--muted); }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    nav { margin-bottom: 40px; font-weight: 500; }
+    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="../">Arthur Cordeiro</a></nav>
+
+    <h1>ConcursoVideos</h1>
+    <p class="lead">Aplicativo de uso pessoal que acessa, em modo somente leitura, arquivos de vídeo armazenados no Google Drive do próprio desenvolvedor, para reprodução em um servidor de mídia local.</p>
+
+    <h2>Como funciona</h2>
+    <p>O Google Drive é montado como uma pasta no computador do desenvolvedor por meio do rclone. Um servidor Jellyfin, rodando na mesma máquina, lê essa pasta e organiza os vídeos em uma biblioteca de cursos.</p>
+    <p>Os arquivos são transmitidos sob demanda. Nada é publicado, compartilhado ou enviado a terceiros.</p>
+
+    <h2>Quem usa</h2>
+    <p>Somente o desenvolvedor, com a própria conta Google. O aplicativo não é oferecido ao público.</p>
+
+    <p><a href="privacy.html">Política de Privacidade</a></p>
+
+    <footer>
+      <p>Contato: <a href="mailto:arthurcordeirofer@gmail.com">arthurcordeirofer@gmail.com</a></p>
+    </footer>
+  </main>
+</body>
+</html>
