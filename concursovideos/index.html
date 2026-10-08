@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Política de Privacidade - ConcursoVideos</title>
-  <meta name="description" content="Política de Privacidade do aplicativo ConcursoVideos.">
+  <title>ConcursoVideos</title>
+  <meta name="description" content="ConcursoVideos: aplicativo de uso pessoal que lê vídeos do Google Drive do próprio desenvolvedor para reprodução em um servidor de mídia local.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:wght@600&display=swap" rel="stylesheet">
@@ -32,10 +32,10 @@
     }
     main { max-width: 680px; margin: 0 auto; padding: 64px 20px; }
     h1, h2 { font-family: "STIX Two Text", Georgia, serif; font-weight: 600; line-height: 1.15; }
-    h1 { font-size: clamp(2rem, 5.5vw, 2.6rem); margin: 0 0 8px; }
-    h2 { font-size: 1.3rem; margin: 32px 0 8px; }
+    h1 { font-size: clamp(2.2rem, 6vw, 3rem); margin: 0 0 16px; }
+    h2 { font-size: 1.4rem; margin: 36px 0 10px; }
     p { margin: 0 0 14px; }
-    .updated { color: var(--muted); margin-bottom: 28px; }
+    .lead { font-size: 1.12rem; color: var(--muted); }
     a { color: var(--accent); text-underline-offset: 3px; }
     a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     nav { margin-bottom: 40px; font-weight: 500; }
@@ -44,27 +44,22 @@
 </head>
 <body>
   <main>
-    <nav><a href="./">ConcursoVideos</a></nav>
+    <nav><a href="../">Arthur Cordeiro</a></nav>
 
-    <h1>Política de Privacidade</h1>
-    <p class="updated">Última atualização: 8 de outubro de 2026</p>
+    <h1>ConcursoVideos</h1>
+    <p class="lead">Aplicativo de uso pessoal que acessa, em modo somente leitura, arquivos de vídeo armazenados no Google Drive do próprio desenvolvedor, para reprodução em um servidor de mídia local.</p>
 
-    <p>O ConcursoVideos é um aplicativo de uso exclusivamente pessoal, utilizado apenas pelo seu desenvolvedor, Arthur Cordeiro.</p>
+    <h2>Como funciona</h2>
+    <p>O Google Drive é montado como uma pasta no computador do desenvolvedor por meio do rclone. Um servidor Jellyfin, rodando na mesma máquina, lê essa pasta e organiza os vídeos em uma biblioteca de cursos.</p>
+    <p>Os arquivos são transmitidos sob demanda. Nada é publicado, compartilhado ou enviado a terceiros.</p>
 
-    <h2>Dados acessados</h2>
-    <p>O aplicativo solicita acesso somente leitura ao Google Drive da conta autenticada, com a finalidade única de listar e reproduzir arquivos de vídeo armazenados nela. Nenhum arquivo é criado, alterado ou excluído.</p>
+    <h2>Quem usa</h2>
+    <p>Somente o desenvolvedor, com a própria conta Google. O aplicativo não é oferecido ao público.</p>
 
-    <h2>Uso e armazenamento</h2>
-    <p>Os arquivos são lidos sob demanda e podem ser mantidos temporariamente em cache no computador local do próprio usuário. Os dados não são enviados a servidores de terceiros, vendidos, compartilhados ou usados para publicidade.</p>
-
-    <h2>Uso de dados do Google</h2>
-    <p>O uso de informações recebidas das APIs do Google segue a <a href="https://developers.google.com/terms/api-services-user-data-policy">Política de Dados do Usuário dos Serviços de API do Google</a>, incluindo os requisitos de uso limitado.</p>
-
-    <h2>Revogação de acesso</h2>
-    <p>O acesso pode ser revogado a qualquer momento em <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+    <p><a href="privacy.html">Política de Privacidade</a></p>
 
     <footer>
-      <p>Dúvidas: <a href="mailto:arthurcordeirofer@gmail.com">arthurcordeirofer@gmail.com</a></p>
+      <p>Contato: <a href="mailto:arthurcordeirofer@gmail.com">arthurcordeirofer@gmail.com</a></p>
     </footer>
   </main>
 </body>
