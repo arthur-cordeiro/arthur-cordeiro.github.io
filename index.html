@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arthur Cordeiro</title>
+  <meta name="description" content="Arthur Cordeiro, desenvolvedor de sistemas. C++ como linguagem principal, sites e aplicações, automações em Python e no ecossistema Microsoft. Sistemas de Informação na UFMG.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=STIX+Two+Text:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="js/background.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/home.js" defer></script>
+</head>
+<body>
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="coord" id="coord" aria-hidden="true"></div>
+
+  <nav class="nav" aria-label="Seções">
+    <div class="nav-inner">
+      <a class="brand" href="#inicio"><span class="brand-mark">θ</span><span>Arthur Cordeiro</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#trajetoria">Trajetória</a></li>
+        <li><a href="#ferramentas">Ferramentas</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li class="nav-indicator" id="navIndicator" aria-hidden="true"></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="formulas" aria-hidden="true">
+    <span style="top:14%;left:3%;font-size:1.3rem">∫₀^∞ e^(−x²) dx = √π ⁄ 2</span>
+    <span style="top:31%;right:2%;font-size:1.1rem">det(A − λI) = 0</span>
+    <span style="top:47%;left:1.5%;font-size:1.5rem">Σ 1⁄n² = π²⁄6</span>
+    <span style="top:63%;right:3%;font-size:1.2rem">∇·E = ρ ⁄ ε₀</span>
+    <span style="top:78%;left:4%;font-size:1.1rem">Ax = b</span>
+    <span style="top:89%;right:5%;font-size:1.3rem">f′(x) = lim (f(x+h) − f(x)) ⁄ h</span>
+  </div>
+
+  <main class="page" id="inicio">
+    <header class="hero">
+      <div>
+        <h1>Arthur Cordeiro</h1>
+        <p class="role" aria-live="polite"><span class="sr-only">Desenvolvedor de sistemas. </span><span class="typed" id="typed">Programo principalmente em C++.</span><span class="caret" aria-hidden="true"></span></p>
+        <p class="lead">Desenvolvedor de sistemas com C++ como linguagem principal. Crio sites e aplicações e, no Banco Stellantis, transformo rotinas manuais em robôs, fluxos e painéis. Estudo Sistemas de Informação na UFMG e sou apaixonado por matemática.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#projetos">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            Ver projetos
+          </a>
+          <a class="btn btn-icon" href="https://github.com/SEUUSUARIO" target="_blank" rel="noopener" title="GitHub">
+            <svg viewBox="0 0 24 24"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/><line x1="13.5" y1="4" x2="10.5" y2="20"/></svg>
+            <span class="sr-only">GitHub</span>
+          </a>
+          <a class="btn btn-icon" href="https://www.linkedin.com/in/SEU-PERFIL" target="_blank" rel="noopener" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="13" x2="21" y2="13"/></svg>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a class="btn btn-icon" href="mailto:arthurcordeirofer@gmail.com" title="E-mail">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+            <span class="sr-only">E-mail</span>
+          </a>
+        </div>
+      </div>
+
+      <figure class="plot">
+        <svg viewBox="0 0 320 320" aria-hidden="true">
+          <line class="axis" x1="0" y1="160" x2="320" y2="160"/>
+          <line class="axis" x1="160" y1="0" x2="160" y2="320"/>
+          <g id="ticks"></g>
+          <path class="curve2" id="curve2" d=""/>
+          <path class="curve" id="curve" d=""/>
+          <circle class="dot" id="dot" r="4" cx="-20" cy="-20"/>
+        </svg>
+        <img src="img/avatar.jpg" alt="Foto de Arthur Cordeiro" width="196" height="196">
+        <figcaption>r(θ) = 1 + 0,09 sen 8θ</figcaption>
+      </figure>
+    </header>
+
+    <section id="sobre">
+      <div class="section-head">
+        <h2>Sobre</h2>
+      </div>
+      <div class="about">
+        <div class="panel about-text reveal">
+          <p>C++ é a linguagem em que mais penso e programo: gosto do controle que ela dá sobre memória e desempenho, e de como obriga a entender o que acontece por baixo do código. Além dela, desenvolvo sites e aplicações, do layout à publicação.</p>
+          <p>No trabalho, atuo com automação de processos no setor financeiro: robôs em Python que operam portais web e planilhas, integrações por API, fluxos no Power Automate e painéis no Power BI para as áreas de negócio.</p>
+          <p>O que mais me motiva é pegar um processo que consome horas de alguém toda semana e fazê-lo rodar sozinho, com controle de erros e registro do que aconteceu.</p>
+          <p>A matemática entra como forma de pensar: modelar bem o problema antes de escrever a primeira linha costuma ser a parte mais importante da solução. Fora do código, acompanho o mercado financeiro por hobby e estudo análise gráfica.</p>
+        </div>
+        <div class="panel euler reveal">
+          <div class="eq"><i>e</i><sup><i>iπ</i></sup> + 1 = 0</div>
+          <p>A identidade de Euler junta as cinco constantes mais importantes da matemática numa única linha. É a minha favorita.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="trajetoria">
+      <div class="section-head">
+        <h2>Trajetória</h2>
+        <p>Da base técnica no Coltec à automação de processos no mercado financeiro.</p>
+      </div>
+      <ol class="timeline" id="timeline">
+        <li class="track" aria-hidden="true"></li>
+        <li class="progress" id="progress" aria-hidden="true"></li>
+
+        <li class="step reveal">
+          <span class="node" aria-hidden="true"></span>
+          <article class="panel card">
+            <div class="step-top">
+              <h3>Técnico em Desenvolvimento de Sistemas</h3>
+              <span class="tag">Concluído</span>
+            </div>
+            <p class="org">Coltec, Colégio Técnico da UFMG</p>
+            <p>Foi onde comecei a programar de verdade. O curso técnico integrado me deu a base que uso até hoje: lógica de programação, banco de dados, desenvolvimento web e trabalho em projetos em equipe. Foi também onde o C++ virou minha linguagem principal.</p>
+            <ul class="chips"><li>C++</li><li>Lógica de programação</li><li>Banco de dados</li><li>Desenvolvimento web</li><li>Projetos em equipe</li></ul>
+          </article>
+        </li>
+
+        <li class="step now reveal">
+          <span class="node" aria-hidden="true"></span>
+          <article class="panel card">
+            <div class="step-top">
+              <h3>Bacharelado em Sistemas de Informação</h3>
+              <span class="tag wip">Em andamento</span>
+            </div>
+            <p class="org">Universidade Federal de Minas Gerais</p>
+            <p>Na graduação, aprofundo os fundamentos de computação e a parte matemática que mais me interessa. Disciplinas que marcaram o percurso até aqui:</p>
+            <ul>
+              <li><strong>Álgebra Linear Computacional</strong>, com fatorações de matrizes, SVD e PageRank, implementados em Python com NumPy.</li>
+              <li><strong>Sistemas Operacionais</strong>, com a implementação de um shell em C com pipes, redirecionamento e processos em segundo plano.</li>
+              <li><strong>Linguagens de Programação</strong>, com gramáticas (BNF e EBNF), semântica e paradigmas.</li>
+              <li><strong>Programação para Dispositivos Móveis</strong>, com desenvolvimento Android em Kotlin.</li>
+              <li><strong>Introdução à Contabilidade</strong>, que conversa diretamente com o meu trabalho no setor financeiro.</li>
+            </ul>
+            <ul class="chips"><li>Álgebra linear</li><li>C</li><li>NumPy</li><li>Kotlin</li><li>Sistemas operacionais</li><li>Contabilidade</li></ul>
+          </article>
+        </li>
+
+        <li class="step now reveal">
+          <span class="node" aria-hidden="true"></span>
+          <article class="panel card">
+            <div class="step-top">
+              <h3>Desenvolvedor de automações</h3>
+              <span class="tag ok">Atual</span>
+            </div>
+            <p class="org">Banco Stellantis</p>
+            <p>Desenvolvo e mantenho automações que tiram trabalho manual das áreas de negócio, do levantamento do processo até a entrega e o suporte em produção.</p>
+            <ul>
+              <li>Robôs em Python que operam portais web com Playwright e manipulam planilhas do Excel e do SharePoint.</li>
+              <li>Integrações com APIs de parceiros e envio automático de relatórios por e-mail.</li>
+              <li>Fluxos no Power Automate ligados a Microsoft Forms, SharePoint, Planner e Excel.</li>
+              <li>Painéis no Power BI para acompanhamento de indicadores.</li>
+              <li>Ferramentas usadas por pessoas de outras áreas, com interface simples e tratamento de erros.</li>
+            </ul>
+            <ul class="chips"><li>Python</li><li>Playwright</li><li>Power Automate</li><li>Power BI</li><li>SharePoint</li></ul>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ferramentas">
+      <div class="section-head">
+        <h2>Ferramentas</h2>
+      </div>
+      <div class="skills">
+        <article class="panel skill skill-main reveal">
+          <h3><svg viewBox="0 0 24 24"><path d="M8 4c-2 0-2.5 1.5-2.5 4S5 12 3 12c2 0 2.5 1.5 2.5 4s.5 4 2.5 4"/><path d="M16 4c2 0 2.5 1.5 2.5 4s.5 4 2.5 4c-2 0-2.5 1.5-2.5 4s-.5 4-2.5 4"/></svg>C++ <span class="tag">Linguagem principal</span></h3>
+          <p>A linguagem em que resolvo problemas com mais naturalidade. Uso para algoritmos, estruturas de dados e programas em que desempenho e controle de memória importam.</p>
+          <ul class="chips"><li>STL</li><li>Orientação a objetos</li><li>Estruturas de dados</li><li>Algoritmos</li><li>Gerência de memória</li><li>C</li></ul>
+        </article>
+        <article class="panel skill reveal">
+          <h3><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><circle cx="6.5" cy="6.5" r=".6"/><circle cx="9" cy="6.5" r=".6"/></svg>Sites e aplicações</h3>
+          <p>Do layout à publicação, com foco em páginas rápidas, responsivas e acessíveis.</p>
+          <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SCORM</li><li>GitHub Pages</li><li>Kotlin</li></ul>
+        </article>
+        <article class="panel skill reveal">
+          <h3><svg viewBox="0 0 24 24"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/></svg>Python</h3>
+          <p>Automação de processos, integração com APIs e tratamento de dados.</p>
+          <ul class="chips"><li>Playwright</li><li>Excel via COM</li><li>APIs REST</li><li>OAuth2</li><li>Tkinter</li><li>PyInstaller</li><li>NumPy</li></ul>
+        </article>
+        <article class="panel skill reveal">
+          <h3><svg viewBox="0 0 24 24"><path d="M4 7h10M4 12h16M4 17h7"/><circle cx="18" cy="7" r="2"/><circle cx="15" cy="17" r="2"/></svg>Power Platform</h3>
+          <p>Fluxos, formulários e painéis no ecossistema Microsoft.</p>
+          <ul class="chips"><li>Power Automate</li><li>Power BI</li><li>SharePoint</li><li>Microsoft Forms</li><li>Planner</li></ul>
+        </article>
+        <article class="panel skill reveal">
+          <h3><svg viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M6 16c3-8 6 4 9-4s3-6 5-6"/></svg>Base</h3>
+          <p>O que sustenta o resto, da linha de comando à matemática.</p>
+          <ul class="chips"><li>Git</li><li>Linux</li><li>Postman</li><li>Álgebra linear</li><li>Sistemas operacionais</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="section-head">
+        <h2>Projetos</h2>
+        <p>Uma seleção do que construí. Clique em um projeto para ver os detalhes.</p>
+      </div>
+
+      <ul class="filters" id="filters" aria-label="Filtrar projetos">
+        <li><button class="filter" data-filter="all" aria-pressed="true">Todos <span class="count"></span></button></li>
+        <li><button class="filter" data-filter="cpp" aria-pressed="false">C e C++ <span class="count"></span></button></li>
+        <li><button class="filter" data-filter="web" aria-pressed="false">Sites e aplicações <span class="count"></span></button></li>
+        <li><button class="filter" data-filter="python" aria-pressed="false">Automação em Python <span class="count"></span></button></li>
+        <li><button class="filter" data-filter="power" aria-pressed="false">Power Platform <span class="count"></span></button></li>
+        <li><button class="filter" data-filter="bi" aria-pressed="false">Dados e BI <span class="count"></span></button></li>
+        <li><button class="filter" data-filter="edu" aria-pressed="false">Treinamento <span class="count"></span></button></li>
+        <li><button class="filter" data-filter="pessoal" aria-pressed="false">Pessoal <span class="count"></span></button></li>
+      </ul>
+
+      <div class="projects" id="projects">
+
+        <article class="panel project" data-cat="cpp">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
+            <span class="tag">Acadêmico</span>
+          </div>
+          <h3>Shell simplificado em C</h3>
+          <p class="kind">Sistemas Operacionais, UFMG</p>
+          <p class="summary">Interpretador de comandos no estilo Unix, construído sobre o esqueleto do shell do xv6.</p>
+          <div class="details" id="d0"><div>
+            <ul>
+              <li>Execução de programas com fork e exec.</li>
+              <li>Redirecionamento de entrada e saída e encadeamento de comandos com pipes.</li>
+              <li>Subshells e tarefas em segundo plano.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>C</li><li>POSIX</li><li>xv6</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d0">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="web pessoal">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M6 15c2-6 4-7 6-3s4 3 6-5"/></svg></span>
+            <span class="tag ok">No ar</span>
+          </div>
+          <h3>Este portfólio</h3>
+          <p class="kind">Sites e aplicações</p>
+          <p class="summary">Site estático em HTML, CSS e JavaScript puro, publicado no GitHub Pages, sem frameworks.</p>
+          <div class="details" id="d00"><div>
+            <ul>
+              <li>Fundo animado em canvas com curvas paramétricas e mira com coordenadas do plano.</li>
+              <li>Curva polar do topo gerada em SVG a partir da equação.</li>
+              <li>Navegação com seção ativa, filtros de projetos e respeito à preferência de reduzir movimento.</li>
+              <li>Modo claro e escuro automáticos e layout responsivo.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Canvas</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d00">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="python">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></span>
+            <span class="tag ok">Em uso</span>
+          </div>
+          <h3>Consulta de elegibilidade por API</h3>
+          <p class="kind">Automação em Python</p>
+          <p class="summary">Script que lê CPFs de uma planilha no SharePoint, consulta a elegibilidade de cada cliente numa API e preenche a classificação na própria planilha.</p>
+          <div class="details" id="d000"><div>
+            <ul>
+              <li>Autenticação OAuth2 com certificado digital e testes de endpoints no Postman, em homologação e produção.</li>
+              <li>Escrita direta na planilha via COM.</li>
+              <li>Distribuído como executável único com PyInstaller, com a configuração num arquivo ao lado.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>Python</li><li>OAuth2</li><li>PyInstaller</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d000">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="python">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18"/><path d="M8 22h8M12 18v4"/></svg></span>
+            <span class="tag ok">Em produção</span>
+          </div>
+          <h3>Robô de propostas de financiamento</h3>
+          <p class="kind">Automação em Python</p>
+          <p class="summary">Robô que gera propostas de financiamento num portal web a partir de uma planilha compartilhada, linha por linha.</p>
+          <div class="details" id="d1"><div>
+            <ul>
+              <li>Navegação e preenchimento de telas com Playwright, com novas tentativas automáticas quando o portal oscila.</li>
+              <li>Leitura e escrita em planilha do SharePoint via COM, com proteção para vários operadores trabalharem ao mesmo tempo.</li>
+              <li>Módulo de cancelamento que limpa propostas abertas antes de gerar novas.</li>
+              <li>Recuperação de sessão em três níveis para lidar com estados inválidos do portal.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>Python</li><li>Playwright</li><li>Excel COM</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d1">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="python">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><path d="M7 7h11l-3-3"/><path d="M17 17H6l3 3"/></svg></span>
+            <span class="tag ok">Em produção</span>
+          </div>
+          <h3>Conciliação diária de chargebacks</h3>
+          <p class="kind">Automação em Python</p>
+          <p class="summary">Concilia todos os dias a carteira de faturas com um portal de pagamentos e identifica os chargebacks a deduzir.</p>
+          <div class="details" id="d2"><div>
+            <ul>
+              <li>Consulta à API do portal e cruzamento automático com a carteira.</li>
+              <li>Regra de desempate para faturas com mesma data e valor, consultando uma planilha de contratos no SharePoint.</li>
+              <li>Interface em Tkinter com credenciais guardadas no cofre do sistema (keyring).</li>
+              <li>Relatório em Excel formatado e enviado por e-mail pelo Outlook. Usado por pessoas de outras áreas.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>Python</li><li>API REST</li><li>Tkinter</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d2">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="python">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></span>
+            <span class="tag wip">Em desenvolvimento</span>
+          </div>
+          <h3>Triagem de crédito de CPFs e CNPJs</h3>
+          <p class="kind">Automação em Python</p>
+          <p class="summary">Lê uma base em Excel e separa os clientes em aprovados e reprovados com dados de um bureau de crédito.</p>
+          <div class="details" id="d3"><div>
+            <ul>
+              <li>Consulta de score e situação cadastral por API, sempre em tempo real, sem reaproveitar resultados antigos.</li>
+              <li>Lista interna de bloqueios aplicada antes da consulta, para evitar chamadas desnecessárias.</li>
+              <li>Projeto conduzido com especificação e fluxograma antes do código.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>Python</li><li>API</li><li>Excel</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d3">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="python">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 11v5M9.5 13.5L12 16l2.5-2.5"/></svg></span>
+            <span class="tag wip">Em desenvolvimento</span>
+          </div>
+          <h3>Separador de base de cessão de crédito</h3>
+          <p class="kind">Automação em Python</p>
+          <p class="summary">Divide uma base consolidada em um arquivo por cedente e data de vencimento, organizados em árvore de pastas.</p>
+          <div class="details" id="d4"><div>
+            <ul>
+              <li>Estrutura de saída por cedente, ano, mês e dia.</li>
+              <li>Interface gráfica minimalista para quem não programa.</li>
+              <li>Configurações, como caminhos de rede, salvas automaticamente no keyring do Windows.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>Python</li><li>GUI</li><li>Excel</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d4">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="python">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 17c1.5-2 2.5-2 3 0s1.5 1 2-1 2 0 3 1"/></svg></span>
+            <span class="tag wip">Em planejamento</span>
+          </div>
+          <h3>Automação de assinaturas eletrônicas</h3>
+          <p class="kind">Integração por API</p>
+          <p class="summary">Integração com a API da DocuSign para vincular signatários e posicionar assinaturas em vários contratos de uma vez.</p>
+          <div class="details" id="d5"><div>
+            <ul>
+              <li>Substitui um processo manual repetido contrato a contrato.</li>
+              <li>Contratos gerados em PDF a partir de modelos padronizados.</li>
+              <li>Interface para cadastrar signatários internos e externos, com campos de testemunha preenchidos e travados.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>Python</li><li>DocuSign API</li><li>PDF</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d5">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="power">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span>
+            <span class="tag wip">Em desenvolvimento</span>
+          </div>
+          <h3>Registro de liberações de chassi</h3>
+          <p class="kind">Power Platform</p>
+          <p class="summary">Fluxo que registra solicitações vindas de um formulário numa planilha e bloqueia pedidos duplicados.</p>
+          <div class="details" id="d6"><div>
+            <ul>
+              <li>Data e analista preenchidos automaticamente a partir do envio do formulário.</li>
+              <li>Verificação de chassi já liberado com aviso por e-mail para quem solicitou.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>Power Automate</li><li>Forms</li><li>Excel</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d6">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="power bi">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span>
+            <span class="tag wip">Em desenvolvimento</span>
+          </div>
+          <h3>Extração do Planner para o Power BI</h3>
+          <p class="kind">Power Platform e BI</p>
+          <p class="summary">Fluxo que extrai tarefas e o status de cada subtarefa do Planner para análise no Power BI.</p>
+          <div class="details" id="d7"><div>
+            <ul>
+              <li>Vai além da exportação nativa, que só traz a contagem agregada de itens de checklist.</li>
+              <li>Dados gravados numa planilha online com abas de tarefas e subtarefas.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>Power Automate</li><li>Planner</li><li>Power BI</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d7">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="power edu">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
+            <span class="tag wip">Em desenvolvimento</span>
+          </div>
+          <h3>Métricas de vídeos de treinamento</h3>
+          <p class="kind">Power Platform</p>
+          <p class="summary">Coleta automática de visualizações dos vídeos de uma academia interna hospedados no SharePoint.</p>
+          <div class="details" id="d8"><div>
+            <ul>
+              <li>Total de visualizações e espectadores únicos por vídeo.</li>
+              <li>Histórico gravado numa lista com a data de cada coleta.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>Power Automate</li><li>SharePoint</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d8">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="bi">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+            <span class="tag wip">Em desenvolvimento</span>
+          </div>
+          <h3>Painel de indicadores de TI</h3>
+          <p class="kind">Dados e BI</p>
+          <p class="summary">Reconstrução de um painel executivo em Power BI com visão financeira, operacional, de projetos e de riscos.</p>
+          <div class="details" id="d9"><div>
+            <ul>
+              <li>Abas para finanças (OPEX e CAPEX), operações, aplicações, projetos, pessoas, riscos e cibersegurança.</li>
+              <li>Bloco de compliance com acompanhamento de auditorias.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>Power BI</li><li>Indicadores</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d9">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="edu web">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg></span>
+            <span class="tag wip">Em desenvolvimento</span>
+          </div>
+          <h3>Detetives do Compliance</h3>
+          <p class="kind">Jogo web de treinamento</p>
+          <p class="summary">Jogo investigativo sobre prevenção à lavagem de dinheiro, publicado numa plataforma corporativa de cursos.</p>
+          <div class="details" id="d10"><div>
+            <ul>
+              <li>Empacotado em SCORM 1.2, com a pontuação enviada à plataforma em percentual.</li>
+              <li>Três suspeitos e um caso para resolver; a pontuação monta um ranking entre os participantes.</li>
+              <li>Direção visual, personagens e materiais de divulgação.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>SCORM 1.2</li><li>Web</li><li>Game design</li></ul>
+          <div class="project-foot">
+            <button class="toggle" aria-expanded="false" aria-controls="d10">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+        <article class="panel project" data-cat="pessoal">
+          <div class="project-top">
+            <span class="project-icon"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="15" height="14" rx="2"/><polygon points="22 8 17 12 22 16 22 8"/></svg></span>
+            <span class="tag ok">Em uso</span>
+          </div>
+          <h3>Vídeos</h3>
+          <p class="kind">Projeto pessoal</p>
+          <p class="summary">Biblioteca particular dos meus vídeos no Jellyfin, com os arquivos guardados no Google Drive e montados localmente, sem ocupar o disco do computador.</p>
+          <div class="details" id="d11"><div>
+            <ul>
+              <li>Google Drive montado como pasta local pelo rclone, rodando como serviço do systemd no Arch Linux.</li>
+              <li>O Jellyfin só sobe depois que a montagem está pronta, para não marcar a biblioteca como vazia.</li>
+              <li>Cache local limitado, para assistir sem baixar a biblioteca inteira.</li>
+              <li>App OAuth próprio no Google Cloud, com acesso somente leitura e restrito à minha conta.</li>
+            </ul>
+          </div></div>
+          <ul class="chips"><li>Linux</li><li>rclone</li><li>systemd</li><li>Jellyfin</li><li>OAuth2</li></ul>
+          <div class="project-foot">
+            <a class="project-link" href="videos/">Página do projeto</a>
+            <button class="toggle" aria-expanded="false" aria-controls="d11">Detalhes <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="panel contact reveal">
+        <div>
+          <h2>Vamos conversar</h2>
+          <p>Sobre automação, dados ou matemática. Respondo por e-mail ou pelo LinkedIn.</p>
+        </div>
+        <div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="mailto:arthurcordeirofer@gmail.com">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+              Enviar e-mail
+            </a>
+            <button class="btn" id="copyEmail" type="button">
+              <svg viewBox="0 0 24 24" id="copyIcon"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              Copiar e-mail
+            </button>
+            <a class="btn" href="https://www.linkedin.com/in/SEU-PERFIL" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="13" x2="21" y2="13"/></svg>
+              LinkedIn
+            </a>
+            <a class="btn" href="https://github.com/SEUUSUARIO" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/><line x1="13.5" y1="4" x2="10.5" y2="20"/></svg>
+              GitHub
+            </a>
+          </div>
+          <p class="copied" id="copied" role="status"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Arthur Cordeiro</footer>
+
+</body>
+</html>
